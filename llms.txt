@@ -7,6 +7,6 @@ Published by Auggie Health Inc. · open access (CC BY 4.0). Every article has a 
 ## Articles
 
 ## Policies
-- [Aims & Scope](/aims-and-scope.html)
-- [Editorial & Peer-Review Policy](/editorial-policy.html)
-- [Author Guidelines](/author-guidelines.html)
+- [Aims & Scope](https://auggie-health-inc.github.io/aims-and-scope.html)
+- [Editorial & Peer-Review Policy](https://auggie-health-inc.github.io/editorial-policy.html)
+- [Author Guidelines](https://auggie-health-inc.github.io/author-guidelines.html)
