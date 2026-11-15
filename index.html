@@ -6,6 +6,7 @@
 <title>Augmented Intelligence — a journal for human + AI collaboration</title>
 <meta name="description" content="Augmented Intelligence: concise, rigorous, open-access work on how AI augments professional judgment in medicine, clinical operations and research. Permanent DOIs, open access (CC BY 4.0), a human always in the loop.">
 <link rel="canonical" href="https://auggie-health-inc.github.io/">
+<link rel="alternate" type="application/atom+xml" title="Augmented Intelligence — new articles" href="https://auggie-health-inc.github.io/feed.xml">
 
 <!-- OpenGraph / Twitter (launch is LinkedIn-first) -->
 <meta property="og:type" content="website">
@@ -41,7 +42,7 @@
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "editor": [
       {"@type": "Person", "name": "Pulkit Singhal", "@id": "https://orcid.org/0009-0009-4335-6035", "sameAs": "https://orcid.org/0009-0009-4335-6035"},
-      {"@type": "Person", "name": "Dr. Parul Jindal", "jobTitle": "Neurologist"}
+      {"@type": "Person", "name": "Parul Jindal", "jobTitle": "Neurologist"}
     ]
   }
 }
@@ -54,6 +55,13 @@
 <body class="neo">
 <header class="site">
   <a href="/" class="brand">Augmented Intelligence</a>
+  <nav class="pages">
+    <a href="#read">Read</a>
+    <a href="#follow">Follow</a>
+    <a href="/aims-and-scope.html">Aims &amp; scope</a>
+    <a href="/editorial-policy.html">Review</a>
+    <a href="/author-guidelines.html">Submit</a>
+  </nav>
   <span class="issn">ISSN pending · open access</span>
 </header>
 
@@ -61,92 +69,138 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-copy">
-      <p class="kicker">Open access · permanent DOIs</p>
+    <div class="hero-head">
+      <p class="kicker">Open access · permanent DOIs · a human always in the loop</p>
       <h1>The work becomes a <em>citable network</em>.</h1>
       <p class="lede">Augmented Intelligence publishes rigorous, concise work on human + AI collaboration — where artificial intelligence augments professional judgment in medicine, clinical operations and research.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="/aims-and-scope.html">Aims &amp; scope →</a>
-        <a class="btn btn-ghost" href="/editorial-policy.html">How we review</a>
-        <a class="btn btn-ghost" href="/author-guidelines.html">For authors</a>
+    </div>
+
+    <div class="hero-grid">
+      <div class="graph-wrap">
+        <svg viewBox="0 0 600 480" role="img" aria-labelledby="gt gd" preserveAspectRatio="xMidYMid meet">
+          <title id="gt">The journal as a citable network</title>
+          <desc id="gd">A central journal node connects authors, editors, readers, articles with permanent DOIs, and named open reviews that are themselves citable. The editor-in-chief seat is filled; editorial board seats are open.</desc>
+          <defs>
+            <radialGradient id="hubGrad" cx="38%" cy="32%" r="75%">
+              <stop offset="0%" stop-color="#7ef3c4"/>
+              <stop offset="55%" stop-color="#1aa46f"/>
+              <stop offset="100%" stop-color="#0b3b2a"/>
+            </radialGradient>
+            <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#35e0a1" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#3878bd" stop-opacity=".5"/>
+            </linearGradient>
+            <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+              <feGaussianBlur stdDeviation="5"/>
+            </filter>
+          </defs>
+
+          <!-- edges -->
+          <g>
+            <path class="net-edge" d="M300,238 L300,66"/>
+            <path class="net-edge" d="M300,238 L152,70"/>
+            <path class="net-edge" d="M300,238 L60,168"/>
+            <path class="net-edge" d="M300,238 L74,348"/>
+            <path class="net-edge" d="M300,238 L198,440"/>
+            <path class="net-edge" d="M300,238 L372,432"/>
+            <path class="net-edge flow" d="M300,238 L536,312"/>
+            <path class="net-edge flow" d="M300,238 L508,150"/>
+            <!-- cross links -->
+            <path class="net-edge" d="M152,70 L300,66"/>
+            <path class="net-edge" d="M60,168 L74,348"/>
+            <path class="net-edge flow" d="M74,348 L508,150"/>
+            <path class="net-edge flow" d="M508,150 L536,312"/>
+            <path class="net-edge flow" d="M536,312 L372,432"/>
+            <path class="net-edge" d="M372,432 L198,440"/>
+          </g>
+
+          <!-- halos -->
+          <circle class="net-halo" cx="300" cy="238" r="44" filter="url(#soft)"/>
+          <circle class="net-halo" cx="508" cy="150" r="18" filter="url(#soft)"/>
+          <circle class="net-halo" cx="536" cy="312" r="18" filter="url(#soft)"/>
+
+          <!-- nodes -->
+          <circle class="net-hub" cx="300" cy="238" r="36"/>
+          <text class="net-label key" x="300" y="234" text-anchor="middle" style="font-size:8.5px;letter-spacing:.12em">AUGMENTED</text>
+          <text class="net-label key" x="300" y="247" text-anchor="middle" style="font-size:8.5px;letter-spacing:.12em">INTELLIGENCE</text>
+
+          <circle class="net-lead" cx="300" cy="66" r="13"/>
+          <text class="net-label key" x="300" y="40" text-anchor="middle">Founding Editor</text>
+          <text class="net-sub" x="300" y="98" text-anchor="middle">editor-in-chief · filled</text>
+
+          <circle class="net-node" cx="152" cy="70" r="10"/>
+          <text class="net-label" x="152" y="50" text-anchor="middle">Editor</text>
+
+          <circle class="net-node dim" cx="60" cy="168" r="10"/>
+          <text class="net-label" x="24" y="150">Reader</text>
+
+          <circle class="net-node dim" cx="74" cy="348" r="10"/>
+          <text class="net-label" x="26" y="372">Author</text>
+
+          <circle class="net-node bright" cx="508" cy="150" r="11"/>
+          <text class="net-label" x="508" y="130" text-anchor="middle">Article · DOI</text>
+
+          <circle class="net-node bright" cx="536" cy="312" r="11"/>
+          <text class="net-label key" x="536" y="340" text-anchor="middle">Open review · DOI</text>
+
+          <circle class="net-node" cx="372" cy="432" r="11"/>
+          <text class="net-label" x="372" y="460" text-anchor="middle">Reviewer of record</text>
+
+          <circle class="net-node open" cx="198" cy="440" r="11"/>
+          <text class="net-label" x="198" y="468" text-anchor="middle" style="fill:#8aa0b5">Board seat · open</text>
+        </svg>
+        <p class="graph-cap">Every article earns a permanent DOI; every named review earns one too.</p>
       </div>
+
+      
+      <aside class="featured" aria-label="Featured article">
+        <p class="feat-label">Inaugural issue · Vol 1, Article 1</p>
+        <h2 class="feat-title"><a href="/articles/deterministic-clinical-simulation-llm-narration/index.html">The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation</a></h2>
+        <p class="feat-authors">Pulkit Singhal, DO, MS</p>
+        <p class="feat-teaser">An event-sourced architecture where the simulator owns canonical patient truth and the language model only narrates — keeping LLM hallucination out of clinical state, with the determinism invariant stated as an executable test others can adopt.</p>
+        <p class="feat-meta">Published 2026-11-15 · DOI pending</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/articles/deterministic-clinical-simulation-llm-narration/index.html">Read the article →</a>
+          <a class="btn btn-ghost" href="/articles/deterministic-clinical-simulation-llm-narration/deterministic-clinical-simulation-llm-narration.pdf">PDF</a>
+        </div>
+      </aside>
+      
     </div>
+  </section>
 
-    <div class="graph-wrap">
-      <svg viewBox="0 0 600 480" role="img" aria-labelledby="gt gd" preserveAspectRatio="xMidYMid meet">
-        <title id="gt">The journal as a citable network</title>
-        <desc id="gd">A central journal node connects authors, editors, readers, articles with permanent DOIs, and named open reviews that are themselves citable. The editor-in-chief seat is filled; editorial board seats are open.</desc>
-        <defs>
-          <radialGradient id="hubGrad" cx="38%" cy="32%" r="75%">
-            <stop offset="0%" stop-color="#7ef3c4"/>
-            <stop offset="55%" stop-color="#1aa46f"/>
-            <stop offset="100%" stop-color="#0b3b2a"/>
-          </radialGradient>
-          <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#35e0a1" stop-opacity=".9"/>
-            <stop offset="100%" stop-color="#3878bd" stop-opacity=".5"/>
-          </linearGradient>
-          <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-            <feGaussianBlur stdDeviation="5"/>
-          </filter>
-        </defs>
-
-        <!-- edges -->
-        <g>
-          <path class="net-edge" d="M300,238 L300,66"/>
-          <path class="net-edge" d="M300,238 L152,70"/>
-          <path class="net-edge" d="M300,238 L60,168"/>
-          <path class="net-edge" d="M300,238 L74,348"/>
-          <path class="net-edge" d="M300,238 L198,440"/>
-          <path class="net-edge" d="M300,238 L372,432"/>
-          <path class="net-edge flow" d="M300,238 L536,312"/>
-          <path class="net-edge" d="M300,238 L508,150"/>
-          <!-- cross links -->
-          <path class="net-edge" d="M152,70 L300,66"/>
-          <path class="net-edge" d="M60,168 L74,348"/>
-          <path class="net-edge flow" d="M74,348 L508,150"/>
-          <path class="net-edge flow" d="M508,150 L536,312"/>
-          <path class="net-edge flow" d="M536,312 L372,432"/>
-          <path class="net-edge" d="M372,432 L198,440"/>
-        </g>
-
-        <!-- halos -->
-        <circle class="net-halo" cx="300" cy="238" r="44" filter="url(#soft)"/>
-        <circle class="net-halo" cx="300" cy="66" r="20" filter="url(#soft)"/>
-        <circle class="net-halo" cx="536" cy="312" r="18" filter="url(#soft)"/>
-
-        <!-- nodes -->
-        <circle class="net-hub" cx="300" cy="238" r="36"/>
-        <text class="net-label key" x="300" y="234" text-anchor="middle" style="font-size:8.5px;letter-spacing:.12em">AUGMENTED</text>
-        <text class="net-label key" x="300" y="247" text-anchor="middle" style="font-size:8.5px;letter-spacing:.12em">INTELLIGENCE</text>
-
-        <circle class="net-lead" cx="300" cy="66" r="13"/>
-        <text class="net-label key" x="300" y="40" text-anchor="middle">Founding Editor</text>
-        <text class="net-sub" x="300" y="98" text-anchor="middle">editor-in-chief · filled</text>
-
-        <circle class="net-node" cx="152" cy="70" r="10"/>
-        <text class="net-label" x="152" y="50" text-anchor="middle">Editor</text>
-
-        <circle class="net-node dim" cx="60" cy="168" r="10"/>
-        <text class="net-label" x="24" y="150">Reader</text>
-
-        <circle class="net-node dim" cx="74" cy="348" r="10"/>
-        <text class="net-label" x="26" y="372">Author</text>
-
-        <circle class="net-node" cx="508" cy="150" r="11"/>
-        <text class="net-label" x="508" y="130" text-anchor="middle">Article · DOI</text>
-
-        <circle class="net-node" cx="536" cy="312" r="11"/>
-        <text class="net-label key" x="536" y="340" text-anchor="middle">Open review · DOI</text>
-
-        <circle class="net-node" cx="372" cy="432" r="11"/>
-        <text class="net-label" x="372" y="460" text-anchor="middle">Reviewer of record</text>
-
-        <circle class="net-node open" cx="198" cy="440" r="11"/>
-        <text class="net-label" x="198" y="468" text-anchor="middle" style="fill:#8aa0b5">Board seat · open</text>
-      </svg>
-      <p class="graph-cap">Every article earns a permanent DOI; every named review earns one too.</p>
+  <!-- FOLLOW / SUBSCRIBE -->
+  <section class="band follow" id="follow">
+    <div class="follow-copy">
+      <p class="eyebrow">Follow the journal</p>
+      <h2>Get each new article and citable review.</h2>
+      <p class="sub">One short note when something is published — a new article, a named open review, a call for board members. No noise. Unsubscribe in one click.</p>
     </div>
+    <div class="follow-actions">
+      
+      <form class="subscribe" action="https://buttondown.com/api/emails/embed-subscribe/augmented-intelligence" method="post" target="_blank" novalidate>
+        <label class="sr-only" for="sub-email">Email address</label>
+        <input id="sub-email" type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="follow-note">Email updates, free. Or follow by <a href="https://auggie-health-inc.github.io/feed.xml">RSS</a>.</p>
+      
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="band" id="read">
+    <p class="eyebrow">Volume 1</p>
+    <h2>In the inaugural issue.</h2>
+    
+    <ul class="articles">
+      
+      <li>
+        <a href="/articles/deterministic-clinical-simulation-llm-narration/index.html">The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation</a>
+        <span class="byline">Pulkit Singhal, DO, MS · 2026-11-15</span>
+      </li>
+      
+    </ul>
+    
   </section>
 
   <!-- MODEL -->
@@ -182,7 +236,7 @@
       <div class="person lead">
         <div class="avatar">PS</div>
         <span class="role">Founding Editor</span>
-        <span class="name">Pulkit Singhal</span>
+        <span class="name">Pulkit Singhal<span class="postnom">, DO, MS</span></span>
         <p class="aff">Auggie Health Inc. · Omaha, Nebraska</p>
         <p class="links"><a href="https://orcid.org/0009-0009-4335-6035">ORCID 0009-0009-4335-6035</a></p>
         <p class="aff" style="opacity:.85">Started this journal to put good work where it is permanently citable, without a year in a queue.</p>
@@ -190,8 +244,9 @@
       <div class="person">
         <div class="avatar">PJ</div>
         <span class="role">Editorial Board</span>
-        <span class="name">Dr. Parul Jindal</span>
+        <span class="name">Parul Jindal<span class="postnom">, MD</span></span>
         <p class="aff">Neurology · Omaha, Nebraska</p>
+        
       </div>
       <div class="person seat">
         <div class="avatar">+</div>
@@ -211,22 +266,6 @@
     </div>
   </section>
 
-  <!-- ARTICLES -->
-  <section class="band">
-    <p class="eyebrow">Volume 1</p>
-    <h2>In the inaugural issue.</h2>
-    
-    <ul class="articles">
-      
-      <li>
-        <a href="/articles/deterministic-clinical-simulation-llm-narration/index.html">The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation</a>
-        <span class="byline"> · 2026-11-15</span>
-      </li>
-      
-    </ul>
-    
-  </section>
-
   <!-- PRINCIPLES -->
   <section class="band">
     <p class="eyebrow">What we stand for</p>
@@ -242,7 +281,7 @@
 
   <footer class="site-footer">
     <div>Auggie Health Inc. · Omaha, Nebraska, USA<br>
-      Open access under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</div>
+      Open access under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. · <a href="https://auggie-health-inc.github.io/feed.xml">RSS</a></div>
     <nav class="fnav">
       <a href="/about.html">About</a>
       <a href="/aims-and-scope.html">Aims &amp; Scope</a>

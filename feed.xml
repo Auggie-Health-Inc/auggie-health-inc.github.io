@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Augmented Intelligence</title>
+  <subtitle>Augmented Intelligence publishes concise, rigorous work on human+AI collaboration: applied studies, methods, verdicts and case reports where artificial intelligence augments professional judgment, with an emphasis on medicine, clinical operations and research workflows.</subtitle>
+  <link href="https://auggie-health-inc.github.io/"/>
+  <link rel="self" type="application/atom+xml" href="https://auggie-health-inc.github.io/feed.xml"/>
+  <id>https://auggie-health-inc.github.io/</id>
+  <updated>2026-11-15T00:00:00Z</updated>
+  <author><name>Auggie Health Inc.</name></author>
+  <entry>
+    <title>The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation</title>
+    <link href="https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/index.html"/>
+    <id>https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/index.html</id>
+    <updated>2026-11-15T00:00:00Z</updated>
+    <published>2026-11-15T00:00:00Z</published>
+    <author><name>Pulkit Singhal, DO, MS</name></author>
+    <summary>An event-sourced architecture where the simulator owns canonical patient truth and the language model only narrates — keeping LLM hallucination out of clinical state, with the determinism invariant stated as an executable test others can adopt.</summary>
+  </entry>
+</feed>
