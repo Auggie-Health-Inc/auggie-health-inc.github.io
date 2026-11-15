@@ -5,6 +5,7 @@
 Published by Auggie Health Inc. · open access (CC BY 4.0). Every article has a permanent Crossref DOI and is free to read and cite.
 
 ## Articles
+- [The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation](https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/index.html)
 
 ## Policies
 - [Aims & Scope](https://auggie-health-inc.github.io/aims-and-scope.html)

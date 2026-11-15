@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation — Augmented Intelligence</title>
+
+<!-- Google Scholar / Highwire metadata. These tags are what Scholar crawls;
+     every field below must be present and correct for indexing. -->
+<meta name="citation_journal_title" content="Augmented Intelligence">
+<meta name="citation_journal_abbrev" content="Augment. Intell.">
+<meta name="citation_publisher" content="Auggie Health Inc.">
+
+<meta name="citation_title" content="The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation">
+<meta name="citation_author" content="Pulkit Singhal">
+<meta name="citation_publication_date" content="2026-11-15">
+<meta name="citation_volume" content="1">
+
+<meta name="citation_abstract_html_url" content="https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/index.html">
+<meta name="citation_pdf_url" content="https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/deterministic-clinical-simulation-llm-narration.pdf">
+<meta name="citation_language" content="en">
+<meta name="citation_keywords" content="large language models">
+<meta name="citation_keywords" content="clinical simulation">
+<meta name="citation_keywords" content="medical education">
+<meta name="citation_keywords" content="event sourcing">
+<meta name="citation_keywords" content="hallucination">
+<meta name="citation_keywords" content="virtual patients">
+<meta name="citation_keywords" content="AI safety">
+
+<!-- Dublin Core (DOAJ / general harvesters) -->
+<meta name="DC.title" content="The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation">
+<meta name="DC.creator" content="Pulkit Singhal">
+<meta name="DC.date" content="2026-11-15">
+<meta name="DC.publisher" content="Auggie Health Inc.">
+<meta name="DC.rights" content="https://creativecommons.org/licenses/by/4.0/">
+<meta name="DC.type" content="text">
+
+<!-- schema.org structured data (ScholarlyArticle) for Google + AI answer engines -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation",
+  "name": "The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Pulkit Singhal",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Auggie Health Inc., Omaha, Nebraska, USA"
+      },
+      "@id": "https://orcid.org/0009-0009-4335-6035",
+      "sameAs": "https://orcid.org/0009-0009-4335-6035"
+    }
+  ],
+  "datePublished": "2026-11-15",
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Auggie Health Inc."
+  },
+  "isPartOf": {
+    "@type": "Periodical",
+    "name": "Augmented Intelligence"
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/index.html",
+  "keywords": [
+    "large language models",
+    "clinical simulation",
+    "medical education",
+    "event sourcing",
+    "hallucination",
+    "virtual patients",
+    "AI safety"
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site">
+  <a href="/">Augmented Intelligence</a>
+  <span class="issn">ISSN pending</span>
+</header>
+
+<main class="article">
+  <p class="type">Research Article</p>
+  <h1>The simulator owns truth, the model only narrates: an event-sourced architecture that keeps large language models out of canonical patient state in clinical simulation</h1>
+  <p class="authors">Pulkit Singhal</p>
+  <p class="meta">
+    Augmented Intelligence, Vol. 1 ·
+    Published 2026-11-15
+  </p>
+  <p class="actions"><a href="https://auggie-health-inc.github.io/articles/deterministic-clinical-simulation-llm-narration/deterministic-clinical-simulation-llm-narration.pdf">Download PDF</a></p>
+
+  <section class="abstract">
+    <h2>Abstract</h2>
+    <p><strong>Background.</strong> Large language models (LLMs) are being rapidly adopted as virtual patients and conversational tutors in clinical education. In the common design, the model itself holds the patient's state and improvises the clinical facts of the case. Because LLMs hallucinate, this places fabricated clinical facts directly into the authoritative record a learner reasons against — a safety and validity problem that prompt engineering alone cannot close.</p>
+<p><strong>Objective.</strong> To describe and justify an architecture that makes it structurally impossible for the model to mutate canonical patient state, while still using the model for what it is good at: natural-language narration. We claim no new algorithm; the contribution is a specific, testable architectural discipline for clinical simulation and the reasons it holds.</p>
+<p><strong>Design.</strong> A deterministic, event-sourced core owns truth. Every user action becomes an event; a pure, total state engine folds events into patient state via <code>apply_event</code>/<code>replay</code>; the resulting state is handed to the LLM only as a read-only narration input. The append-only event log is the single source of truth and the materialized patient state is a cache that <code>replay</code> can always rebuild. The determinism invariant — replaying the same event log yields identical state — is encoded as an executable test rather than a hoped-for property. Probabilistic physiology is resolved upstream and recorded as event payloads so the reducer stays deterministic. Canonical truth is hidden and disclosed in stages; the learner and the narrator see only what the simulator chooses to reveal.</p>
+<p><strong>Significance.</strong> The model cannot write a clinical fact into the record it should not, because it has no write path to canonical state; it can still mis-narrate, but it cannot corrupt the truth the learner is graded against or the audit log. Determinism makes runs reproducible and reviewable. The pattern is a design discipline others can adopt and test, positioned against the dominant LLM-holds-state approach. We do not claim a learning-outcome result here; this is an architecture report, not an efficacy trial.</p>
+  </section>
+
+  <section class="body">
+    <h2 id="1-introduction">1. Introduction</h2>
+<p>Large language models are being adopted quickly in medical education as virtual patients, standardized-patient simulators, and conversational tutors; recent scoping reviews catalog dozens of such systems [1,2]. The appeal is obvious: an LLM can hold a fluent, open-ended clinical conversation that scripted branching simulations cannot.</p>
+<p>In the most common design, the LLM <em>is</em> the simulation. It is prompted with a case sketch and then improvises the patient's answers, the vital signs, the lab values, and the course of the illness as the conversation unfolds. This is also where the danger lives. LLMs hallucinate, and in clinical contexts they do so in ways that are both confident and plausible [3,4]. When the model holds the state, a hallucinated potassium value, an invented allergy, or a silently shifted diagnosis is not a cosmetic error — it becomes the canonical fact the learner reasons against and is assessed on. Prompt engineering can reduce the rate of such errors but cannot make them impossible, because the authoritative state and the stochastic text generator are the same component.</p>
+<p>This article describes an alternative that we have found load-bearing in building a clinical simulation platform: <strong>separate the thing that owns truth from the thing that talks.</strong> A deterministic engine computes patient state; the LLM only turns already-computed state into prose. The contribution is not a new technique — separating a verified state from a language model, and event sourcing as a way to hold authoritative state, are both established (Section 2). The contribution is the specific, testable discipline for the clinical-simulation case, and the argument for why it closes the hallucination-into-the-record hole that the mainstream design leaves open.</p>
+<h2 id="2-related-work">2. Related work</h2>
+<p><strong>LLM virtual patients.</strong> A large and growing body of work uses LLMs as virtual or standardized patients and as tutors [1,2]. These systems demonstrate the conversational value of LLMs in education; most of them, however, let the model carry the clinical state of the case, which is exactly the design decision this article argues against.</p>
+<p><strong>Clinical hallucination.</strong> The tendency of LLMs to produce confident, fabricated clinical content is well documented, including under adversarial conditions and in summarization, and has motivated dedicated safety and hallucination-rate frameworks [3,4]. Our architecture is a structural response to this hazard for the simulation case specifically.</p>
+<p><strong>Keeping the model out of authoritative state.</strong> The general principle of pairing an LLM with an external, structured state rather than letting it be the state is established. Generative-agent architectures give LLM agents an external memory stream and retrieval rather than relying on the model's own memory [5]; neuro-symbolic approaches constrain LLM behavior with explicit procedural structure for adherence and interpretability [6]; and deterministic event-graph substrates have been proposed as world models for structured reasoning over simulated state [7]. Our work applies this principle in a particular, strict form — the LLM has no write path to canonical state at all — to clinical education.</p>
+<p><strong>Event sourcing.</strong> Representing authoritative state as an append-only log of events, with current state derived by replaying that log, is a standard software-architecture pattern [8]. We adopt it unchanged; our contribution is using it as the enforcement mechanism for the truth/narration boundary and encoding its determinism as a test.</p>
+<p>Against this prior art we add no algorithm. We add a concrete, testable architecture for clinical simulation that makes model-corruption of canonical patient state structurally impossible, and the rationale for each boundary.</p>
+<h2 id="3-the-architecture">3. The architecture</h2>
+<h3 id="31-the-one-rule">3.1 The one rule</h3>
+<pre><code>User Action → Event → State Transition → Patient State Update → LLM Narration → User
+</code></pre>
+<p>The LLM never directly mutates canonical patient state. It receives a state the deterministic engine has already produced and turns it into prose. Every layer exists to protect that boundary: the model is a read-only consumer of finished state, sitting behind a provider-agnostic boundary and never imported into the engine.</p>
+<h3 id="32-event-sourcing-the-log-is-the-truth">3.2 Event sourcing: the log is the truth</h3>
+<p>An append-only <code>events</code> log is the single source of truth. Current patient state is a <em>materialized projection</em> — a cache produced by a pure function, <code>replay(events) → PatientState</code>. Because <code>replay</code> is pure, the cached snapshot can be dropped and rebuilt at any time and is never authoritative on its own.</p>
+<pre><code>events (append-only)  ──replay()──▶  PatientState snapshot  ──narrate()──▶  prose
+        ▲                                                         (read-only)
+        │ apply_event() folds one validated event at a time
+   new event (from a validated user action)
+</code></pre>
+<p>This has three consequences that matter for safety. The history is complete and auditable: every change to the patient is an event with a cause. The state is reconstructable: nothing is lost if a cache is corrupted. And, critically, there is no API by which the narrator can append an event — only validated user actions and engine decisions produce events.</p>
+<h3 id="33-the-state-engine-contract">3.3 The state-engine contract</h3>
+<p>The engine that folds events into state is held to an explicit contract:</p>
+<ul>
+<li><strong>Pure:</strong> no clock reads, randomness, I/O, network, or LLM calls.</li>
+<li><strong>Total:</strong> every event type has an explicit branch; an unknown type raises rather than being silently ignored.</li>
+<li><strong>Ordered and idempotent:</strong> events fold in monotonic order; a non-monotonic sequence is rejected so replay is reproducible.</li>
+<li><strong>Probabilistic physiology resolved upstream:</strong> when an outcome is stochastic (a complication, a lab draw), the randomness is resolved <em>before</em> the event is recorded and the result is written into the event payload. The reducer itself stays deterministic, so the same log always yields the same state.</li>
+</ul>
+<p>Keeping the engine pure is what lets the determinism invariant be tested at all, and it is what keeps every clinical decision — selection, scoring, disclosure — in typed business logic rather than in a free-text prompt.</p>
+<h3 id="34-the-determinism-invariant-as-a-test">3.4 The determinism invariant as a test</h3>
+<p>The property that the whole design rests on — <em>replaying the same event log yields identical state</em> — is encoded as an executable test, not left as an aspiration. That test is the operational statement of the safety claim: if it passes, the patient's truth is a deterministic function of a reviewable log, independent of the model. A regression that let non-determinism (or the model) into the write path would turn the test red.</p>
+<h3 id="35-hidden-truth-and-staged-disclosure">3.5 Hidden truth and staged disclosure</h3>
+<p>The case's canonical truth is stored hidden; the learner and the narrator only ever see what the simulator chooses to reveal at each step. This supports the teaching goal — preserve uncertainty until the learner commits — and it also means the model is never handed the full answer key to leak.</p>
+<h2 id="4-why-this-is-safe-and-what-it-is-not">4. Why this is safe, and what it is not</h2>
+<p><strong>What the architecture guarantees.</strong> The model cannot write a clinical fact into the canonical record, because it has no write path to it. A hallucinated value in the model's prose is a narration error, visible and correctable, not a corruption of the state the learner is assessed against or of the audit log. Runs are reproducible and reviewable because state is a pure function of an append-only log.</p>
+<p><strong>What it does not guarantee.</strong> The model can still mis-narrate — describe the computed state inaccurately or add unsupported color. Our claim is narrower and, we think, the right one: the model cannot corrupt <em>truth</em>, only its <em>telling</em>, and a telling error is recoverable in a way a corrupted record is not. Narration-layer accuracy (faithfulness of prose to state) is a separate, ongoing concern and is not solved by this architecture.</p>
+<p><strong>What we do not claim.</strong> We claim no new algorithm; event sourcing [8], external-state agent design [5,6,7], and LLM virtual patients [1,2] are all prior work. We present no learning-outcome or efficacy result here; this is an architecture and rationale report, and an efficacy study is future work. The description is of one system's design; other decompositions could enforce the same boundary.</p>
+<h2 id="5-implementation-contact-code">5. Implementation / Contact / Code</h2>
+<p>The pattern is deliberately portable: an append-only event store, a pure reducer, a test that asserts replay-identity, and a narration layer that only reads. It does not depend on a particular model provider — the LLM sits behind a provider-agnostic boundary — or on a particular database; an in-memory store and a durable store satisfy the same interface. A reference description and the determinism test are available for reuse; implementation questions are welcome via the project's issue tracker.</p>
+<h2 id="declarations">Declarations</h2>
+<p><strong>Funding.</strong> None.</p>
+<p><strong>Conflicts of interest.</strong> The author is affiliated with Auggie Health Inc., which develops a clinical simulation platform built on the architecture described. No patient data were used; the article describes a design pattern.</p>
+<p><strong>AI-assistance disclosure.</strong> This article was prepared with large-language-model drafting and editing assistance, including the literature survey in Section 2, which the author verified. The author is responsible for the content.</p>
+<p><strong>Data and code availability.</strong> This is a design/architecture report; it reports no dataset. The determinism invariant is stated precisely enough to reimplement and test independently.</p>
+<h2 id="references">References</h2>
+<p>[1] "Embracing the Future of Medical Education With Large Language Model–Based Virtual Patients: Scoping Review." <em>Journal of Medical Internet Research</em>, 2025;27:e79091. doi:10.2196/79091.</p>
+<p>[2] Li D, Lutfi SL. "Large Language Model–Based Virtual Patient Systems for History-Taking in Medical Education: Comprehensive Systematic Review." <em>JMIR Medical Informatics</em>, 2026;14:e79039. doi:10.2196/79039.</p>
+<p>[3] Omar M, Sorin V, Collins JD, et al. "Multi-model assurance analysis showing large language models are highly vulnerable to adversarial hallucination attacks during clinical decision support." <em>Communications Medicine</em>, 2025;5:330. doi:10.1038/s43856-025-01021-3.</p>
+<p>[4] Asgari E, Montaña-Brown N, Dubois M, et al. "A framework to assess clinical safety and hallucination rates of LLMs for medical text summarisation." <em>npj Digital Medicine</em>, 2025;8:274. doi:10.1038/s41746-025-01670-7.</p>
+<p>[5] Park JS, O'Brien JC, Cai CJ, Morris MR, Liang P, Bernstein MS. "Generative Agents: Interactive Simulacra of Human Behavior." <em>Proc. UIST</em>, 2023. arXiv:2304.03442.</p>
+<p>[6] "Procedural Adherence and Interpretability Through Neuro-Symbolic Generative Agents." 2024. arXiv:2402.16905.</p>
+<p>[7] "Deterministic Event-Graph Substrates as World Models for Counterfactual Reasoning." 2026. arXiv:2605.15967.</p>
+<p>[8] Fowler M. "Event Sourcing." martinfowler.com, 2005.</p>
+  </section>
+
+  
+  <section class="implementation">
+    <h2>Implementation, contact &amp; code</h2>
+    <p>The architecture is a reusable design pattern; the determinism invariant is stated as an executable test others can adopt.</p>
+    
+    <p><strong>Contact the authors for implementation:</strong> via the project's issue tracker</p>
+  </section>
+  
+
+  <footer class="article-footer">
+    <p class="license">© 2026 the author(s). Open access under
+      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+    <p class="disclosure"><strong>AI-assistance disclosure:</strong> Prepared with large-language-model drafting and editing assistance, including the literature survey, which the author verified. The author is responsible for the content.</p>
+    <p class="review"><strong>Review:</strong> Founder-authored; handled under the journal's independent-handling rule. Pending independent review.</p>
+    <p class="preservation">Archived at Zenodo.</p>
+  </footer>
+</main>
+</body>
+</html>

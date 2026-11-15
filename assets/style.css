@@ -217,6 +217,15 @@ body.neo .site-footer .fnav{display:flex;flex-wrap:wrap;gap:1.1rem}
   .net-edge.flow{animation:none}.net-halo{animation:none;opacity:.18}
 }
 
+/* ---- print: clean academic PDF (no site chrome) ---- */
+@media print{
+  header.site,.actions,.site-footer,nav.pages{display:none!important}
+  body,body.neo{background:#fff!important;color:#141b26!important}
+  main{max-width:none;padding:0}
+  a{color:#0b7a53}
+  .abstract,.implementation{background:#fff;border:1px solid #d7dce2}
+}
+
 /* ---- responsive ---- */
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;gap:1.6rem;padding:2.2rem 0 1.4rem}
