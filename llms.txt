@@ -1,0 +1,12 @@
+# Augmented Intelligence
+
+> Augmented Intelligence publishes concise, rigorous work on human+AI collaboration: applied studies, methods, verdicts and case reports where artificial intelligence augments professional judgment, with an emphasis on medicine, clinical operations and research workflows.
+
+Published by Auggie Health Inc. · open access (CC BY 4.0). Every article has a permanent Crossref DOI and is free to read and cite.
+
+## Articles
+
+## Policies
+- [Aims & Scope](/aims-and-scope.html)
+- [Editorial & Peer-Review Policy](/editorial-policy.html)
+- [Author Guidelines](/author-guidelines.html)

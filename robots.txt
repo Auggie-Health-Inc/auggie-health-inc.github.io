@@ -1,0 +1,26 @@
+# Augmented Intelligence — we WANT to be crawled, by search and by AI answer engines.
+User-agent: *
+Allow: /
+
+# AI answer engines explicitly welcomed (so we surface in AI-generated answers).
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: CCBot
+Allow: /
+
+# Replace with the absolute URL on deploy, e.g. https://<domain>/sitemap.xml
+Sitemap: /sitemap.xml
